@@ -1,5 +1,5 @@
 {
-  "name": "toolkit",
+  "name": "@seonggukchoi/toolkit",
   "version": "0.0.1",
   "description": "Toolkit for simplify conversions and value generation",
   "main": "dist/main.js",
@@ -26,6 +26,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/seonggukchoi/toolkit.git"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "dependencies": {
     "@nestjs/common": "^10.2.4",
