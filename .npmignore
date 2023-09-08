@@ -1,0 +1,13 @@
+.vscode
+node_modules
+src
+.eslintrc.json
+.gitignore
+.ncurc.json
+.npmignore
+.prettierrc
+.swcrc
+nest-cli.json
+README.md
+tsconfig.build.json
+tsconfig.json
