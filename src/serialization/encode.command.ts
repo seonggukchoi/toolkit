@@ -1,31 +1,61 @@
 import { Command, Option } from 'nest-commander';
 
-import { SerializationCommandOptions } from './serialization-command-options.interface.js';
-import { SerializationCommand } from './serialization.command.js';
+import { CopyableCommandRunner } from '../copyable/index.js';
 
-@Command({ name: 'encode', description: 'Encode the input.' })
-export class EncodeCommand extends SerializationCommand {
-  public override async run(passedParams: string[], options?: SerializationCommandOptions | undefined): Promise<void> {
+import { EncodeCommandOptions } from './encode-command-options.interface.js';
+
+@Command({ name: 'encode', description: 'Encode or decode the input.' })
+export class EncodeCommand extends CopyableCommandRunner<EncodeCommandOptions> {
+  public override async run(passedParams: string[], options?: EncodeCommandOptions | undefined): Promise<void> {
     if (!this.validateOptions(options)) {
       return;
     }
 
-    if (options!.base64) {
-      this.print(Buffer.from(passedParams.at(0) ?? '').toString('base64'), options!.copy);
-    }
+    if (options!.decode) {
+      if (options!.base64) {
+        this.print(Buffer.from(passedParams.at(0) ?? '', 'base64').toString(), options!.copy);
+      }
 
-    if (options!.hex) {
-      this.print(Buffer.from(passedParams.at(0) ?? '').toString('hex'), options!.copy);
+      if (options!.hex) {
+        this.print(Buffer.from(passedParams.at(0) ?? '', 'hex').toString(), options!.copy);
+      }
+    } else {
+      if (options!.base64) {
+        this.print(Buffer.from(passedParams.at(0) ?? '').toString('base64'), options!.copy);
+      }
+
+      if (options!.hex) {
+        this.print(Buffer.from(passedParams.at(0) ?? '').toString('hex'), options!.copy);
+      }
     }
   }
 
+  @Option({ flags: '-d, --decode', description: 'Decode the input.' })
+  private applyDecodeOption(): boolean {
+    return true;
+  }
+
   @Option({ flags: '-b, --base64', description: 'Encode the input as base64.' })
-  protected applyBase64Option(): boolean {
+  private applyBase64Option(): boolean {
     return true;
   }
 
   @Option({ flags: '-x, --hex', description: 'Encode the input as hex.' })
-  protected applyHexOption(): boolean {
+  private applyHexOption(): boolean {
+    return true;
+  }
+
+  private validateOptions(options?: EncodeCommandOptions | undefined): boolean {
+    if (!options) {
+      return false;
+    }
+
+    if (options.base64 && options.hex) {
+      this.print('The options cannot be used together.');
+
+      return false;
+    }
+
     return true;
   }
 }

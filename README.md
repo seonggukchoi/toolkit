@@ -51,7 +51,7 @@ tk random -s -l 32 -c
 Also, if you want to decode a Base64 string, you can input like this.
 
 ```bash
-tk decode -b VGhpcyBpcyB2ZXJ5IGVhc3kh
+tk encode -b VGhpcyBpcyB2ZXJ5IGVhc3kh -d
 
 # --- Result ---
 # This is very easy!
