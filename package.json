@@ -9,7 +9,7 @@
     "npm": ">=9.0.0"
   },
   "scripts": {
-    "build": "nest build",
+    "build": "nest build && chmod 755 dist/main.js",
     "lint": "eslint \"src/**/*.ts\" --fix",
     "upgrade": "ncu && npm install"
   },
