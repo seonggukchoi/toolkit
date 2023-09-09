@@ -23,10 +23,7 @@ export class RandomCommand extends CopyableCommandRunner<RandomCommandOptions> {
     }
 
     if (options!.number) {
-      this.print(
-        math.randomInt(options!.min ?? Number.MIN_SAFE_INTEGER, options!.max ?? Number.MAX_SAFE_INTEGER).toString(),
-        options!.copy,
-      );
+      this.print(math.randomInt(options!.min ?? Number.MIN_SAFE_INTEGER, options!.max ?? Number.MAX_SAFE_INTEGER), options!.copy);
     }
   }
 
