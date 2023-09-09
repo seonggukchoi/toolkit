@@ -5,7 +5,7 @@ import { HashModule } from './hash/hash.module.js';
 import { JwtModule } from './jwt/jwt.module.js';
 import { OtpModule } from './otp/otp.module.js';
 import { RandomModule } from './random/random.module.js';
-import { SerializationModule } from './serialization/serialization.module.js';
+import { EncodeModule } from './serialization/encode.module.js';
 
-@Module({ imports: [RandomModule, SerializationModule, JwtModule, HashModule, OtpModule, DateCommand] })
+@Module({ imports: [RandomModule, EncodeModule, JwtModule, HashModule, OtpModule, DateCommand] })
 export class AppModule {}
