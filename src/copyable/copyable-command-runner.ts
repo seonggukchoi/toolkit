@@ -10,7 +10,7 @@ export abstract class CopyableCommandRunner<CommandOptions extends CopyableComma
     return true;
   }
 
-  protected async print(value: string, copyToClipboard: boolean = false): Promise<void> {
+  protected async print(value: any, copyToClipboard: boolean = false): Promise<void> {
     console.log(value);
 
     if (copyToClipboard) {
