@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/seonggukchoi/toolkit/compare/v1.1.0...v1.2.0) (2023-09-09)
+
+
+### Features
+
+* aggregate encode and decode command and rename the module ([86a2ee5](https://github.com/seonggukchoi/toolkit/commit/86a2ee57ca98333a5221711c42c989d7fbdcab99))
+
 # [1.1.0](https://github.com/seonggukchoi/toolkit/compare/v1.0.0...v1.1.0) (2023-09-09)
 
 
