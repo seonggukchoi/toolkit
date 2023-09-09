@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   release:
-    name: release
+    name: Release
     runs-on: ubuntu-latest
 
     permissions:

@@ -1,6 +1,7 @@
 import { CopyableCommandOptions } from '../copyable/index.js';
 
-export interface SerializationCommandOptions extends CopyableCommandOptions {
+export interface EncodeCommandOptions extends CopyableCommandOptions {
+  decode?: boolean;
   base64?: boolean;
   hex?: boolean;
 }
