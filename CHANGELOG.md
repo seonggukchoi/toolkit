@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/seonggukchoi/toolkit/compare/v1.2.0...v1.3.0) (2023-10-22)
+
+
+### Features
+
+* add en/decoder for URL encoding ([60f3a02](https://github.com/seonggukchoi/toolkit/commit/60f3a0223414f2d32fcb95f3fd74af5ec998bc5a))
+
 # [1.2.0](https://github.com/seonggukchoi/toolkit/compare/v1.1.0...v1.2.0) (2023-09-09)
 
 
