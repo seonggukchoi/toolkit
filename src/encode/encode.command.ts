@@ -16,12 +16,20 @@ export class EncodeCommand extends CopyableCommandRunner<EncodeCommandOptions> {
         this.print(Buffer.from(passedParams.at(0) ?? '', 'base64').toString(), options!.copy);
       }
 
+      if (options?.url) {
+        this.print(decodeURIComponent(passedParams.at(0) ?? ''), options!.copy);
+      }
+
       if (options!.hex) {
         this.print(Buffer.from(passedParams.at(0) ?? '', 'hex').toString(), options!.copy);
       }
     } else {
       if (options!.base64) {
         this.print(Buffer.from(passedParams.at(0) ?? '').toString('base64'), options!.copy);
+      }
+
+      if (options?.url) {
+        this.print(encodeURIComponent(passedParams.at(0) ?? ''), options!.copy);
       }
 
       if (options!.hex) {
@@ -40,6 +48,11 @@ export class EncodeCommand extends CopyableCommandRunner<EncodeCommandOptions> {
     return true;
   }
 
+  @Option({ flags: '-u, --url', description: 'Encode the input as URL.' })
+  private applyUrlOption(): boolean {
+    return true;
+  }
+
   @Option({ flags: '-x, --hex', description: 'Encode the input as hex.' })
   private applyHexOption(): boolean {
     return true;
@@ -50,7 +63,7 @@ export class EncodeCommand extends CopyableCommandRunner<EncodeCommandOptions> {
       return false;
     }
 
-    if (options.base64 && options.hex) {
+    if (options.base64 && options.url && options.hex) {
       this.print('The options cannot be used together.');
 
       return false;
