@@ -4,5 +4,6 @@
     "source.fixAll.eslint": true
   },
   "prettier.enable": true,
-  "editor.rulers": [140]
+  "editor.rulers": [140],
+  "git.branchProtection": ["main"]
 }
